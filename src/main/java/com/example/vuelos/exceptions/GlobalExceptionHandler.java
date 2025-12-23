@@ -1,7 +1,6 @@
 package com.example.vuelos.exceptions;
 
 import com.example.vuelos.models.ApiResponse;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -11,6 +10,10 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 
 import java.util.HashMap;
 import java.util.Map;
+
+// Es basicamente el que genera las respuestas HTTP de la API, para que se vean "bonitas"
+// Recoge las excepciones personalizadas y las devuelve con el HttpsStatus correcto y con el envoltorio del ApiResponse
+// Tambien maneja otro tipo de excepciones diferentes.
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {

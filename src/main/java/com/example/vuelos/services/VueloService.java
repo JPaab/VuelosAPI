@@ -14,6 +14,12 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.Stream;
 
+// La logica de la APP esta envuelta en esta clase Service.
+// Validaciones como que fechaSalida no puede ser posterior a fechaLlegada
+// Implemente filtros para el listado(empresa, lugarLlegada, fechaSalida)
+// Tambien por default los vuelos se listan en el orden de "fechaSalida", pero tambien puedes listarlos segun "empresa" y "lugarLlegada"
+// Aqui decidimos que excepción tirar.
+
 @Service
 public class VueloService {
 

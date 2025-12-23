@@ -6,6 +6,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+// Este utils basicamente maneja el tema de las fechas, si la fecha se da en un formato invalido se lanza una excepcion.
+// Convierte la fechaSalida a LocalDate
+// Valida las fechas para que no sea incoherente, orden etc.
+
 public class DateUtils {
 
     private static final DateTimeFormatter ISO = DateTimeFormatter.ISO_LOCAL_DATE;

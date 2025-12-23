@@ -6,6 +6,10 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDate;
 import java.util.*;
 
+// En esta clase es donde se encuentra la logica de la BD en memoria.
+// Automaticamente se crean 10 vuelos precargados.
+// Y la creación de metodos para apoyar al "VueloService"
+
 @Repository
 public class VueloRepository {
 

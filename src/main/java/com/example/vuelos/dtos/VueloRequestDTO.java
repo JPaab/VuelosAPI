@@ -8,6 +8,10 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
+
+// Validaciones basicas para lo que acepta el POST/PUT.
+// Basicamente no expone directamente el modelo y valida el body JSN antes de entrar a la logica "".
+
 @Getter
 @Setter
 public class VueloRequestDTO {
@@ -31,7 +35,5 @@ public class VueloRequestDTO {
     @NotNull(message = "fechaLlegada obligatorio")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaLlegada;
-
-
 }
 

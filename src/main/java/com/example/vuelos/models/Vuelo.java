@@ -5,6 +5,10 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+// Es donde se crea la entidad Vuelo, con sus campos propios (id, nombreVuelo, empresa etc...)
+// Usamos Lombok para generar Getters, setters y toString.
+// Estos campos se usan en el repo y en el service.
+
 @Data
 @NoArgsConstructor
 public class Vuelo {

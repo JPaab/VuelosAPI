@@ -16,7 +16,7 @@ public class VueloRepository {
     private final Map<Integer, Vuelo> vuelos = new HashMap<>();
     private int idVuelo = 1;
 
-    private VueloRepository() {
+    public VueloRepository() {
         save(seed("H001-V", "Iberia", "Madrid", "Buenos Aires", LocalDate.of(2025, 3, 10), LocalDate.of(2025, 3, 11)));
         save(seed("T100-V", "Turkish", "Istanbul", "New York", LocalDate.of(2025, 3, 10), LocalDate.of(2025, 3, 11)));
         save(seed("E777-V", "Emirates", "Dubai", "Madrid", LocalDate.of(2025, 3, 12), LocalDate.of(2025, 3, 12)));

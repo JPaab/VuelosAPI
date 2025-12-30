@@ -9,8 +9,9 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 
-// Validaciones basicas para lo que acepta el POST/PUT.
-// Basicamente no expone directamente el modelo y valida el body JSN antes de entrar a la logica "".
+// DTO de entrada para crear y actualizar vuelos (POST y PUT)
+// Define los datos obligatorios que acepta la API en el body JSON
+// Aplica validaciones basicas antes de que la petición entre a la logica
 
 @Getter
 @Setter

@@ -30,13 +30,12 @@ public class VueloController {
             @RequestParam(required = false) String empresa,
             @RequestParam(required = false) String lugarLlegada,
             @RequestParam(required = false) String fechaSalida,
-            @RequestParam(required = false) String ordenarPor,
-            @RequestParam(required = false) String ordenar
+            @RequestParam(required = false) String ordenarPor
     ) {
         LocalDate fecha = DateUtils.parseLocalDateOrThrow(fechaSalida, "fechaSalida");
 
         List<VueloResponseDTO> data = service
-                .listar(empresa, lugarLlegada, fecha, ordenarPor, ordenar)
+                .listar(empresa, lugarLlegada, fecha, ordenarPor)
                 .stream()
                 .map(VueloMapper::toDTO)
                 .toList();
@@ -49,14 +48,14 @@ public class VueloController {
     public ResponseEntity<ApiResponse<VueloResponseDTO>> obtenerPorId(@PathVariable int id) {
         Vuelo v = service.obtenerPorId(id);
         return ResponseEntity.status(HttpStatus.OK)
-                .body(new ApiResponse<>(true, "Vuelo encontrado", VueloMapper.toDTO(v)));
+                .body(new ApiResponse<>(true, "Vuelo encontrado por ID", VueloMapper.toDTO(v)));
     }
 
     @PostMapping
     public ResponseEntity<ApiResponse<VueloResponseDTO>> crear(@Valid @RequestBody VueloRequestDTO dto) {
         Vuelo creado = service.crear(VueloMapper.toModel(dto));
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(new ApiResponse<>(true, "Vuelo creado", VueloMapper.toDTO(creado)));
+                .body(new ApiResponse<>(true, "Vuelo creado correctamente", VueloMapper.toDTO(creado)));
     }
 
     @PutMapping("/{id}")

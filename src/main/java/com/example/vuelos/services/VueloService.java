@@ -62,14 +62,9 @@ public class VueloService {
     public List<Vuelo> listar(String empresa,
                               String lugarLlegada,
                               LocalDate fechaSalida,
-                              String ordenarPor,
-                              String ordenar) {
+                              String ordenarPor) {
 
         Comparator<Vuelo> comp = buildComparator(ordenarPor);
-
-        String ord = DateUtils.normalizeOrden(ordenar);
-        boolean desc = ord != null && ord.equalsIgnoreCase("DESC");
-        if (desc) comp = comp.reversed();
 
         return listarFiltrados(empresa, lugarLlegada, fechaSalida)
                 .sorted(comp)
@@ -98,7 +93,7 @@ public class VueloService {
     public void eliminar(int id) {
         boolean eliminado = repository.delete(id);
         if (!eliminado) {
-            throw new NotFoundException("Vuelo inexistente");
+            throw new NotFoundException("Vuelo eliminado recientemente");
         }
     }
 
@@ -124,7 +119,8 @@ public class VueloService {
     private Comparator<Vuelo> buildComparator(String ordenarPor) {
         // Aqui hacemos caso a la consigna. Al listar los vuelos, estaran ordenados por fechaSalida.
         if (ordenarPor == null || ordenarPor.isBlank()) {
-            return Comparator.comparing(Vuelo::getFechaSalida);
+            return Comparator.comparing(Vuelo::getFechaSalida)
+                    .thenComparing(Vuelo::getId);
         }
 
         return switch (ordenarPor.trim()) {
